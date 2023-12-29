@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passenger Information</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    input[type="radio"] {
+      margin-right: 5px;
+    }
+
+    /* Custom styling for file input */
+    .custom-file-input {
+      color: transparent;
+    }
+
+    .custom-file-input::-webkit-file-upload-button {
+      visibility: hidden;
+    }
+
+    .custom-file-input::before {
+      content: 'Select File';
+      color: #ffffff;
+      display: inline-block;
+      background: #007bff;
+      border: 1px solid #007bff;
+      border-radius: 5px;
+      padding: 5px 8px;
+      outline: none;
+      white-space: nowrap;
+      cursor: pointer;
+      text-align: center;
+      margin-right: 5px;
+    }
+
+    .custom-file-input:hover::before {
+      border-color: #0056b3;
+    }
+
+    .custom-file-input:active::before {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body class="margin" style="background-image: url(./pexels-andrea-piacquadio-3769138.jpg); background-size: cover; width: 100%;">
+    <div class="card text-center  my-5 mx-3" style="width: 1300px;">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <div class="container">
+
+            <!-- Prompt for the number of passengers -->
+            <div class="row">
+              <div class="col-lg-12">
+                <label for="numberOfPassengers">Enter the number of passengers:</label>
+                <input type="number" id="numberOfPassengers" min="1" onchange="updatePassengerTable()">
+              </div>
+            </div>
+          
+            <!-- Grid structure for passengers -->
+            <div class="row">
+              <div class="col-lg-12">
+                <table id="passengerTable" class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Name</th>
+                      <th>Age</th>
+                      <th>Handicapped</th>
+                      <th>Aadhar Card</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Rows for passengers will be dynamically added here -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          
+          </div>
+          <button type="button" class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;margin-left: 45%;">
+                  <a href="pay.html"> Continue</a>
+                </button>
+        </div>
+        <div class="card-footer text-body-secondary">
+          2 days ago
+        </div>
+      </div>
+<!-- Container for the grid -->
+<script>
+  function updatePassengerTable() {
+    var numberOfPassengersInput = document.getElementById("numberOfPassengers");
+    var numberOfPassengers = numberOfPassengersInput.value;
+    var table = document.getElementById("passengerTable");
+
+    // Clear existing rows
+    var tbody = table.getElementsByTagName("tbody")[0];
+    tbody.innerHTML = "";
+
+    // Add new rows based on the number of passengers
+    for (var i = 0; i < numberOfPassengers; i++) {
+      var row = tbody.insertRow(-1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      var cell3 = row.insertCell(2);
+      var cell4 = row.insertCell(3);
+
+      cell1.innerHTML = '<input type="text" class="form-control" placeholder="Enter name">';
+      cell2.innerHTML = '<input type="text" class="form-control" placeholder="Enter age">';
+      cell3.innerHTML = '<label><input type="radio" name="handicapped' + i + '" value="yes"> Yes</label>' +
+                        '<label><input type="radio" name="handicapped' + i + '" value="no"> No</label>';
+      cell4.innerHTML = '<div class="custom-file">' +
+                        '  <input type="file" class="custom-file-input" id="aadharCard' + i + '">' +
+                        '  <label class="custom-file-label" for="aadharCard' + i + '">Choose file</label>' +
+                        '</div>';
+    }
+  }
+</script>
+</body>
+</html>

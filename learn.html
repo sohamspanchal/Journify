@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    if (confirm("Are you new?")) {
+        txt = "You pressed OK!";
+        let person = prompt("Please enter your name");
+        let text;
+        if (person == null || person == "") {
+        text = "User cancelled the prompt.";
+        } else {
+            text =  + "! How are you today?";
+            if (confirm("Hello "+ person)) {
+            } else {
+            txt = "You pressed Cancel!";
+            }
+        }
+    } 
+    else {
+    txt = "You pressed Cancel!";
+        let person = prompt("Please enter your name");
+        let text;
+        if (person == null || person == "") {
+        text = "User cancelled the prompt.";
+        alert("Are you really on this page");
+
+        } 
+        else {
+            text =  + "! How are you today?";
+            if (confirm("Hello "+ person)) {
+            } else {
+            txt = "You pressed Cancel!";
+            }
+        }
+    }
+</script>
+    
+    
+</body>
+</html>

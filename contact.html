@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Book Tour Project</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+           
+            overflow: hidden;
+            color: white;
+            animation: backgroundAnimation 10s infinite alternate,  infinite alternate;
+
+             /* Hide the horizontal scrollbar */
+           
+            background-size: cover;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg'), url('https://static.pexels.com/photos/2166703/pexels-photo-2166703.jpeg');
+                background-position: top, top;
+            }
+            100% {
+                background-image: url('https://static.pexels.com/photos/414171/pexels-photo-414171.jpeg'), url('https://static.pexels.com/photos/2166703/pexels-photo-2166703.jpeg');
+                background-position: bottom, bottom;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .contact-columns {
+            display: flex;
+            flex-wrap: wrap;
+            margin-left: 250px;
+        }
+
+        .call-column,
+        .chat-column,
+        .meeting-column {
+            background: transparent;
+  backdrop-filter: blur(10px);
+          height:auto;
+            border: 1px solid #0b0a0a;
+            padding: 10px;
+            margin: 10px;
+            width: 30%;
+          /* Set the background color to white */
+            border-radius: 10px;
+        }
+
+        .call-column {
+            height: 10%; 
+            margin-top: 100px;
+            margin-left: 250px;
+        }
+
+        .chat-column {
+            height: 60%;
+            margin-left: 250px;
+        }
+
+        .meeting-column {
+            width: 30%;
+            float: right;
+            margin-top: -170px;
+            margin-right: 250px;
+            margin-left: 50px;
+            margin-bottom: 90px;
+        }
+
+        .contact-form {
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .contact-form input {
+            width: 50%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        .contact-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+        .phone-icon {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: url('OIP.jpeg') no-repeat center center;
+            background-size: cover;
+            cursor: pointer;
+        }
+
+        .whatsapp_float_btn {
+            width: 60px;
+        }
+
+        /* Add a rating popup style */
+        .rating-popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rating-popup-content {
+            background: rgb(65, 62, 62);
+            padding: 20px;
+            border-radius: 5px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .close-rating-popup {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .rating-stars {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .rating-stars span {
+            font-size: 30px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        .rating-stars span:hover,
+        .rating-stars span.active {
+            color: gold;
+        }
+        
+        /* Add style for Rate Us button */
+        #rateUsBtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        #rateUsBtn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    <h1>Contact Us</h1>
+
+    <div class="call-columns">
+        <div class="call-column">
+            <h2>Call Us</h2>
+            <p>Directly at <a href="tel:9373465659"><span class="phone-icon"></span> 937-346-5659</a></p>
+        </div>
+    </div>
+
+    <div class="meeting-column">
+        <h2>Book a Meeting</h2>
+        <div class="contact-form">
+            <form action="submit_form.php" method="post">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" required>
+
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" required>
+
+                <button type="submit">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="chat-column">
+        <h2>Chat with Our Team</h2>
+        <p>Click the chat icon below to start a conversation with our team.</p>
+        <div class="whatsapp_float">
+            <a href="https://wa.me/919373465659" target="_blank"><img src="download.jpeg" width="60px" class="whatsapp_float_btn"/></a>
+        </div>
+        <!-- Add Rate Us button -->
+        <button id="rateUsBtn" onclick="openRatingPopup()">Rate Us</button>
+    </div>
+
+    <!-- Rating Popup -->
+    <div class="rating-popup" id="ratingPopup">
+        <div class="rating-popup-content">
+            <span class="close-rating-popup" onclick="closeRatingPopup()">&times;</span>
+            <h2>Rate Us</h2>
+            <p>We would love to hear your feedback!</p>
+            <div class="rating-stars">
+                <span onclick="rateStar(1)">&#9733;</span>
+                <span onclick="rateStar(2)">&#9733;</span>
+                <span onclick="rateStar(3)">&#9733;</span>
+                <span onclick="rateStar(4)">&#9733;</span>
+                <span onclick="rateStar(5)">&#9733;</span>
+            </div>
+            <button onclick="submitRating()">Submit Rating</button>
+        </div>
+    </div>
+
+    <script>
+        function openRatingPopup() {
+            document.getElementById('ratingPopup').style.display = 'flex';
+        }
+
+        function closeRatingPopup() {
+            document.getElementById('ratingPopup').style.display = 'none';
+        }
+
+        // JavaScript for dynamic star rating
+        function rateStar(rating) {
+            const stars = document.querySelectorAll('.rating-stars span');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.add('active');
+                } else {
+                    star.classList.remove('active');
+                }
+            });
+        }
+
+        // Function to submit the rating (you can replace this with your backend logic)
+        function submitRating() {
+            const stars = document.querySelectorAll('.rating-stars span.active').length;
+            alert('You rated us ' + stars + ' stars. Thank you for your feedback!');
+            document.getElementById('ratingPopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
